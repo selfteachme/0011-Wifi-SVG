@@ -2,19 +2,8 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
+  background-color: #171546;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +13,105 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header.inverse {
+  background-color: #fff;
+  color: #999;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.wifi-icon {
+  --icon-color: #ffd200;
+  --error-color: #f40082;
+}
+
+.inverse .wifi-icon {
+  --icon-color: #26c9c3;
+  --error-color: #3452a5;
+}
+
+.wifi-icon path {
+  display: none;
+  fill: var(--icon-color);
+}
+
+.wifi-icon.poor-connection .level-1 {
+  display: block;
+}
+
+.wifi-icon.fair-connection .level-1,
+.wifi-icon.fair-connection .level-2 {
+  display: block;
+}
+
+.wifi-icon.good-connection .level-1,
+.wifi-icon.good-connection .level-2,
+.wifi-icon.good-connection .level-3 {
+  display: block;
+}
+
+.wifi-icon.excellent-connection .level-1,
+.wifi-icon.excellent-connection .level-2,
+.wifi-icon.excellent-connection .level-3,
+.wifi-icon.excellent-connection .level-4 {
+  display: block;
+}
+
+.wifi-icon.wifi-off .wifi-off {
+  display: block;
+}
+
+.wifi-icon.error .level-1,
+.wifi-icon.error .level-2,
+.wifi-icon.error .level-3,
+.wifi-icon.error .level-4 {
+  display: block;
+  opacity: 0.2;
+}
+
+.wifi-icon.error .error {
+  display: block;
+  fill: var(--error-color);
+}
+
+.wifi-icon.search .level-1,
+.wifi-icon.search .level-2,
+.wifi-icon.search .level-3,
+.wifi-icon.search .level-4 {
+  display: block;
+}
+
+@keyframes searching {
+  0% {
+    opacity: 0.2;
   }
-  to {
-    transform: rotate(360deg);
+
+  25% {
+    opacity: 1;
   }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.wifi-icon.search .level-1 {
+  animation: searching 2s ease infinite;
+}
+
+.wifi-icon.search .level-2 {
+  animation: searching 2s ease infinite;
+  animation-delay: 0.5s;
+}
+
+.wifi-icon.search .level-3 {
+  animation: searching 2s ease infinite;
+  animation-delay: 1s;
+}
+
+.wifi-icon.search .level-4 {
+  animation: searching 2s ease infinite;
+  animation-delay: 1.5s;
 }
